@@ -6,7 +6,7 @@ btnReg.addEventListener('click',()=>{
     window.location.href = '../register.html';
 });
 
-async function login() {
+async function login(email, password) {
     try {
         const email = document.getElementById('email').value;
         const psw = document.getElementById('psw').value;
@@ -18,8 +18,11 @@ async function login() {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({ email, psw }),
-            credentials: 'include'
+            credentials: 'include',
+            body: JSON.stringify({
+                email: email,
+                psw: password
+            })
         });
         
         console.log('Response headers:', res.headers);
