@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
 
-    const socket = io('http://34.78.10.229:3000', {
+    const socket = io('https://extraordinary-parfait-60b553.netlify.app', {
     withCredentials: true,
     auth: {
         token: authToken
