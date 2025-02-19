@@ -14,7 +14,8 @@ async function login() {
         const res = await fetch('https://nodejs311.dszcbaross.edu.hu/api/login', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({ email, psw }),
             credentials: 'include'
@@ -23,6 +24,8 @@ async function login() {
         const data = await res.json();
         
         if (res.ok) {
+            console.log('All cookies:', document.cookie);
+
             // Test authentication
             try {
                 const checkAuth = await fetch('https://nodejs311.dszcbaross.edu.hu/api/check-auth', {
