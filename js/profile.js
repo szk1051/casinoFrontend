@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load current profile picture
     async function loadCurrentProfilePic() {
         try {
-            const response = await fetch('http://34.78.10.229:3000/api/user/profilePic', {
+            const response = await fetch('https://nodejs311.dszcbaross.edu.hu/api/user/profilePic', {
                 method: 'GET',
                 credentials: 'include'
             });
             
             if (response.ok) {
                 const userData = await response.json();
-                profilePic.src = `http://34.78.10.229:3000/uploads/${userData.profile_pic}`;
+                profilePic.src = `https://nodejs311.dszcbaross.edu.hu/uploads/${userData.profile_pic}`;
             }
         } catch (error) {
             console.error('Error loading profile picture:', error);
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             // Username update
             if (usernameInput.value.trim()) {
-                const usernameResponse = await fetch('http://34.78.10.229:3000/api/editUsername', {
+                const usernameResponse = await fetch('https://nodejs311.dszcbaross.edu.hu/api/editUsername', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Email update
             if (emailInput.value.trim()) {
-                const emailResponse = await fetch('http://34.78.10.229:3000/api/editEmail', {
+                const emailResponse = await fetch('https://nodejs311.dszcbaross.edu.hu/api/editEmail', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Password update
             if (passwordInput.value.trim()) {
-                const passwordResponse = await fetch('http://34.78.10.229:3000/api/editProfilePsw', {
+                const passwordResponse = await fetch('https://nodejs311.dszcbaross.edu.hu/api/editProfilePsw', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const formData = new FormData();
                 formData.append('profile_pic', selectedFile);
 
-                const picResponse = await fetch('http://34.78.10.229:3000/api/editProfilePic', {
+                const picResponse = await fetch('https://nodejs311.dszcbaross.edu.hu/api/editProfilePic', {
                     method: 'PUT',
                     credentials: 'include',
                     body: formData
@@ -100,13 +100,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     return;
                 }
                 
-                // Update displayed profile picture
                 profilePic.src = URL.createObjectURL(selectedFile);
-                selectedFile = null; // Reset selected file
+                selectedFile = null;
             }
 
             showAlert('Profile updated successfully!','success');
-            // Clear inputs after successful update
             usernameInput.value = '';
             emailInput.value = '';
             passwordInput.value = '';
@@ -117,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add profile pic upload button
     const picUploadButton = document.createElement('button');
     picUploadButton.textContent = 'Choose Profile Picture';
     picUploadButton.className = 'mt-3 uploadBt';
@@ -132,8 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fileInput.onchange = function(e) {
             const file = e.target.files[0];
             if (file) {
-                selectedFile = file; // Store the selected file
-                // Show preview of selected image
+                selectedFile = file;
                 profilePic.src = URL.createObjectURL(file);
             }
         };

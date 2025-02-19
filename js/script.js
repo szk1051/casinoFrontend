@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function checkAdminStatus() {
         try {
-            const response = await fetch('http://34.78.10.229:3000/api/user/role', {
+            const response = await fetch('https://nodejs311.dszcbaross.edu.hu/api/user/role', {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function updateBalance() {
         try {
-            const response = await fetch('http://34.78.10.229:3000/api/balance', {
+            const response = await fetch('https://nodejs311.dszcbaross.edu.hu/api/balance', {
                 method: 'GET',
                 headers: {
                     'Accept': 'application/json'

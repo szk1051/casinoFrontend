@@ -11,7 +11,7 @@ async function login() {
         const email = document.getElementById('email').value;
         const psw = document.getElementById('psw').value;
         
-        const res = await fetch('http://34.78.10.229:3000/api/login', {
+        const res = await fetch('https://nodejs311.dszcbaross.edu.hu/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ async function login() {
         if (res.ok) {
             // Test authentication
             try {
-                const checkAuth = await fetch('http://34.78.10.229:3000/api/check-auth', {
+                const checkAuth = await fetch('https://nodejs311.dszcbaross.edu.hu/api/check-auth', {
                     credentials: 'include'
                 });
                 const authData = await checkAuth.json();
