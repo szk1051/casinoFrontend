@@ -11,6 +11,7 @@ async function login() {
         const email = document.getElementById('email').value;
         const psw = document.getElementById('psw').value;
         
+        console.log('Making login request...');
         const res = await fetch('https://nodejs311.dszcbaross.edu.hu/api/login', {
             method: 'POST',
             headers: {
@@ -21,9 +22,19 @@ async function login() {
             credentials: 'include'
         });
         
+        console.log('Response headers:', res.headers);
+        console.log('Response status:', res.status);
+        
+        // Check for Set-Cookie header
+        console.log('Set-Cookie header:', res.headers.get('set-cookie'));
+
         const data = await res.json();
         
+        console.log('Response data:', data);
+
         if (res.ok) {
+            console.log('Login successful, checking cookies...');
+            console.log('Current cookies:', document.cookie);
             console.log('All cookies:', document.cookie);
 
             // Test authentication
