@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load current profile picture
     async function loadCurrentProfilePic() {
         try {
-            const response = await fetch('https://nodejs311.dszcbaross.edu.hu/api/user/profilePic', {
+            const response = await fetch('https://nodejs120.dszcbaross.edu.hu/api/user/profilePic', {
                 method: 'GET',
                 credentials: 'include'
             });
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             // Username update
             if (usernameInput.value.trim()) {
-                const usernameResponse = await fetch('https://nodejs311.dszcbaross.edu.hu/api/editUsername', {
+                const usernameResponse = await fetch('https://nodejs120.dszcbaross.edu.hu/api/editUsername', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Email update
             if (emailInput.value.trim()) {
-                const emailResponse = await fetch('https://nodejs311.dszcbaross.edu.hu/api/editEmail', {
+                const emailResponse = await fetch('https://nodejs120.dszcbaross.edu.hu/api/editEmail', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Password update
             if (passwordInput.value.trim()) {
-                const passwordResponse = await fetch('https://nodejs311.dszcbaross.edu.hu/api/editProfilePsw', {
+                const passwordResponse = await fetch('https://nodejs120.dszcbaross.edu.hu/api/editProfilePsw', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const formData = new FormData();
                 formData.append('profile_pic', selectedFile);
 
-                const picResponse = await fetch('https://nodejs311.dszcbaross.edu.hu/api/editProfilePic', {
+                const picResponse = await fetch('https://nodejs120.dszcbaross.edu.hu/api/editProfilePic', {
                     method: 'PUT',
                     credentials: 'include',
                     body: formData
