@@ -11,7 +11,7 @@ async function login() {
         const email = document.getElementById('email').value;
         const psw = document.getElementById('psw').value;
         
-        const res = await fetch('https://nodejs120.dszcbaross.edu.hu/api/login', {
+        const res = await fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ async function login() {
         if (res.ok) {
             // Test authentication
             try {
-                const checkAuth = await fetch('https://nodejs120.dszcbaross.edu.hu/api/check-auth', {
+                const checkAuth = await fetch('/api/check-auth', {
                     credentials: 'include'
                 });
                 const authData = await checkAuth.json();
@@ -37,7 +37,7 @@ async function login() {
             resetInputs();
             showAlert(`${data.message}`,'success');
             setTimeout(() => {
-                //window.location.href = '../main.html';
+                window.location.href = '../main.html';
             }, 1500);       
         } else if (data.errors) {
             data.errors.forEach(error => {
