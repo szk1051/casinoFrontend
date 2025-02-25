@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Auth token found:', authToken);
     
         if (!authToken) {
-            window.location.href = '/login.html';
+            // window.location.href = '/login.html';
             return;  // Don't connect if no token
         }
 
