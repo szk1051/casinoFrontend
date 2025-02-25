@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Get token more reliably
         function getAuthToken() {
-            const cookies = document.cookie.split(';');
+            const cookies = document.cookie.split('; ');
             for (let cookie of cookies) {
                 const [name, value] = cookie.trim().split('=');
                 if (name === 'auth_token') {
