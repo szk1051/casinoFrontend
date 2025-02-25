@@ -3,4 +3,3 @@
   to = "https://nodejs311.dszcbaross.edu.hu/:splat"
   status = 200
   force = true
-  headers = {X-Forwarded-Host = "https://extraordinary-parfait-60b553.netlify.app/"}
