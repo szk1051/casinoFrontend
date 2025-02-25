@@ -1,0 +1,2 @@
+/api/*  https://nodejs311.dszcbaross.edu.hu/api/:splat  200
+/*      /index.html     200
