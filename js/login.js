@@ -11,7 +11,7 @@ async function login() {
         const email = document.getElementById('email').value;
         const psw = document.getElementById('psw').value;
         
-        const res = await fetch('https://nodejs311.dszcbaross.edu.hu/api/login', {
+        const res = await fetch('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ async function login() {
         if (res.ok) {
             // Test authentication
             try {
-                const checkAuth = await fetch('https://nodejs311.dszcbaross.edu.hu/api/check-auth', {
+                const checkAuth = await fetch('/api/check-auth', {
                     credentials: 'include'
                 });
                 const authData = await checkAuth.json();
