@@ -37,7 +37,7 @@ async function login() {
             resetInputs();
             showAlert(`${data.message}`,'success');
             setTimeout(() => {
-                //window.location.href = '../main.html';
+                window.location.href = '../main.html';
             }, 1500);       
         } else if (data.errors) {
             data.errors.forEach(error => {
